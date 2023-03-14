@@ -1,0 +1,198 @@
+.main {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: clamp(250px, 20vw, 20vw);
+    text-align: justify;
+    padding: 1.5vw 4vw;
+    max-width: 60vw;
+    line-height: 1.5;
+    border-radius: 4px;
+    box-shadow: 1px 1px 10px 6px #171B24;
+    background-color: #252A37;
+    /*background: rgba(0,0,0,0.25)*/
+}
+
+.toc {
+    display: inline-block;
+    margin-left: 2em;
+    border-left: 4px solid #aaaaaa;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 25px;
+}
+
+.toctitle {
+    font-weight: bold;
+    font-size: 14pt;
+    font-style: italic;
+    margin-left: 26px;
+}
+
+.toc ul {
+    margin-top: 8px;
+    margin-bottom: 4px;
+
+}
+
+.toc ul ul {
+    margin: 0px;
+}
+
+.article table, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: 8px;
+}
+
+.article a {
+    color: inherit;
+    text-decoration: inherit;
+    border-radius: 4px;
+    background-color: #454F68;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 4px;
+    padding-right: 4px;
+    transition: 0.15s;
+}
+
+.article a:hover {
+    font-style: italic;
+    text-decoration: inherit;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #5C698A;
+    box-shadow: 2px 2px 8px 0px #171B24;
+}
+
+.article pre {
+    font-size: large;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.66);
+}
+
+.article *:not(pre) > code {
+    font-size: large;
+    background: rgba(0,0,0,0.66);
+    border-radius: 4px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.article blockquote {
+    border-left: 6px solid #00AEAE;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 20px;
+    background: rgba(0, 174, 174, 0.1);
+}
+
+.article img {
+    max-width: 100%;
+}
+
+.edit form {
+    max-width:fit-content;
+    display: inline;
+}
+
+.edit button {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    background-color: #454F68;
+    border: none;
+    border-radius: 4px;
+    font-size: medium;
+    padding: 8px;
+    margin: 8px;
+    box-shadow: 2px 2px 4px 0px #2a2a2a;
+    transition: 0.15s;
+}
+
+.edit button:hover {
+    font-style: italic;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: #5C698A;
+    box-shadow: 2px 2px 8px 0px #171B24;
+}
+
+.edit form, .settings {
+    text-align: center;
+}
+
+.edit input {
+    font-size: xx-large;
+    color: white;
+    font-weight: 500;
+    width: 60%;
+    margin-left: 12px;
+    padding: 8px;
+    border: 2px solid #aaaaaa;
+    border-radius: 4px;
+    background: rgba(0,0,0,0);
+    resize: horizontal;
+}
+
+.edit textarea {
+    width: 100%;
+    max-width: 100%;
+    resize: vertical;
+    height: 66vh;
+    padding: 8px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 12pt;
+    line-height: 1.5;
+    border: 2px solid #aaaaaa;
+    border-radius: 4px;
+    background: rgba(0,0,0,0);
+}
+
+.edit input:focus, textarea:focus {
+    outline: none;
+}
+
+.settings input:focus, textarea:focus {
+    outline: none;
+}
+
+.settings input {
+    font-size: medium;
+    color: white;
+    font-weight: 500;
+    width: 60%;
+    margin: 12px;
+    padding: 8px;
+    border: 2px solid #aaaaaa;
+    border-radius: 4px;
+    background: rgba(0,0,0,0);
+    resize: horizontal;
+}
+
+.settings button {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    background-color: #454F68;
+    border: none;
+    border-radius: 4px;
+    font-size: medium;
+    padding: 8px;
+    margin: 8px;
+    box-shadow: 2px 2px 4px 0px #2a2a2a;
+    transition: 0.15s;
+}
+
+.settings button:hover {
+    font-style: italic;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: #5C698A;
+    box-shadow: 2px 2px 8px 0px #171B24;
+}

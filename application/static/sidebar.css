@@ -1,0 +1,84 @@
+.sidebar {
+    background-color: #171B24;
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 8px;
+    border-right: 0px solid;
+    box-shadow: 1px 1px 10px 6px #171B24;
+}
+
+.sidebar-title {
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar-item {
+    display: block;
+    margin: 8px;
+    border-radius: 4px;
+    transition: 0.15s;
+    line-height: 200%;
+    background-color: #272D3C;
+    text-align: center;
+    padding: 6px;
+    text-decoration: none;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;            
+    text-overflow: ellipsis;
+}
+
+.sidebar-item:hover {
+    background-color: #4B5873;
+    cursor: pointer;
+    font-style: italic;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.sidebar hr {
+    width: 35%;
+}
+
+#sidebar-search {
+    font-size: 100%;
+    color: white;
+    text-align: center;
+    width: 208px;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: 0px solid #888888;
+    border-radius: 4px;
+    background: #272D3C;
+    resize: horizontal;
+    transition: 0.15s;
+}
+
+#sidebar-search:focus {
+    outline: none;
+}
+
+#sidebar-search:hover {
+    font-style: italic;
+    background-color: #4B5873;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+#sidebar-search::placeholder {
+    color: white;
+    opacity: 1 !important;
+}
+
+#sidebar-search:focus::placeholder {
+    opacity: 0 !important;
+}

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    mdBoard - {{ page.title }}
+{% endblock %}
+
+{% block body %}
+    <div class="article">
+        {% autoescape off %}
+            {{ page.content }}
+        {% endautoescape %}
+    <br>
+    <hr>
+    </div>
+    <div class="edit">
+        <form method="get" action="/edit/{{ page.title }}">
+            <button type="submit">Edit Me</button>
+        </form>
+        <form method="post" action="/delete/{{ page.title }}" onsubmit="return confirm('Are you sure?');">
+            <button type="submit">Delete Me</button>
+        </form>
+    </div>
+{% endblock %}

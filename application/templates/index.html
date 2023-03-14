@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    mdBoard - Home
+{% endblock %}
+
+{% block body %}
+    {% if data %}
+    {% else %}
+        <p>Hi! All of your notes are listed on the sidebar.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {% if page %}
+        mdBoard - Edit {{ page.title }}
+    {% else %}
+        mdBoard - New
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div class="edit">
+    {% if page %}
+        <form class="editor" action="/edit/{{ page.title }}" method="POST">
+            <h1>Edit: <input required type="text" name="title" autofocus placeholder="Title" value="{{ page.title }}"></h1>
+    {% else %}
+        <form class="editor" action="/new" method="POST">
+            <h1>New: <input required type="text" name="title" autofocus placeholder="Title" value="{{ page.title }}"></h1>
+    {% endif %}
+            <textarea required name="content" placeholder="# Title&NewLine;&NewLine;Content. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Vivamus at augue eget arcu dictum. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Lorem ipsum dolor sit amet. Nunc sed blandit libero volutpat. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at. Ut tristique et egestas quis ipsum suspendisse ultrices. Vulputate enim nulla aliquet porttitor lacus luctus. Mauris a diam maecenas sed enim ut sem viverra aliquet. Quis hendrerit dolor magna eget est. Id donec ultrices tincidunt arcu non. Lectus urna duis convallis convallis tellus id interdum velit. Et netus et malesuada fames ac turpis.&NewLine;&NewLine;Nullam vehicula ipsum a arcu cursus vitae congue mauris rhoncus. Posuere sollicitudin aliquam ultrices sagittis. At varius vel pharetra vel turpis nunc eget lorem dolor. Nascetur ridiculus mus mauris vitae. Varius duis at consectetur lorem donec massa sapien. Morbi tincidunt augue interdum velit euismod in. Enim nec dui nunc mattis enim. Lacus vestibulum sed arcu non odio euismod lacinia at quis. Sem viverra aliquet eget sit amet tellus cras adipiscing. A erat nam at lectus urna duis. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Viverra aliquet eget sit amet tellus cras. Auctor urna nunc id cursus metus aliquam eleifend mi. Commodo quis imperdiet massa tincidunt nunc pulvinar sapien et. Dui id ornare arcu odio ut sem. Et netus et malesuada fames. Ut tellus elementum sagittis vitae et leo duis ut diam.">{{ page.content }}</textarea>
+            <br>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+{% endblock %}

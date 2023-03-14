@@ -1,0 +1,42 @@
+.login {
+    position: absolute;
+    width: 360px;
+    top: 45%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.login h1 {
+    font-size: 250%;
+    display: block;
+    padding-bottom: 12px;
+}
+
+.login input {
+    font-size: large;
+    padding: 8px;
+    margin: 8px;
+    width: 80%;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 1px 1px 4px 0 #2a2a2a;
+}
+
+.login button {
+    cursor: pointer;
+    color: white;
+    background-color: #454F68;
+    border: none;
+    border-radius: 8px;
+    font-size: large;
+    width: 30%;
+    padding: 12px;
+    margin: 12px;
+    box-shadow: 1px 1px 8px 0px #2a2a2a;
+    transition: 0.15s;
+}
+
+.login button:hover {
+    background-color: #5C698A;
+}

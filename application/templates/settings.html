@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    mdBoard - Settings
+{% endblock %}
+
+{% block body %}
+    <h1>Settings</h1><hr>
+    <div class="settings">
+        <br>
+        <form action="/settings" method="POST">
+            <input type="text" name="username" placeholder="Username" value="{{ data.username }}">
+            <br>
+            <input type="password" name="new_password" placeholder="New Password" value="">
+            <br>
+            <input type="password" name="confirm_new_password" placeholder="Confirm New Password" value="">
+            <br>
+            <input type="text" name="directory" placeholder="Directory" value="{{ data.directory }}">
+            <br>
+            <input required type="password" name="current_password" placeholder="Current Password (Required)" value="">
+            <br>
+            <br>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link href="/static/styles.css" rel="stylesheet">
+        <link href="/static/sidebar.css" rel="stylesheet">
+        <link href="/static/main.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+        <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="sidebar">
+            <h1 style="margin-bottom: 0px;">
+                <a class="sidebar-title" href="/">mdBoard</a>
+            </h1>
+            <a href="/">
+                <img src="/static/logo.png" style="width: 50%;">
+            </a>
+            <hr>
+            <input id="sidebar-search" onkeyup="searcher()"placeholder="Search">
+            <a class="sidebar-item" href="/new">New</a>
+            {% if menu %}
+                <hr>
+                <div id="sidebar-articles">
+                    {% for i in menu %}
+                        <a class="sidebar-item" href="/{{ i }}">{{ i }}</a>
+                    {% endfor %}
+                </div>
+            {% endif%}
+            <hr>
+            <a class="sidebar-item" href="/settings">Settings</a>
+            <a class="sidebar-item" href="/logout">Logout</a>
+            <a class="sidebar-item" href="https://www.github.com/ndsi6382/mdBoard" target="_blank">Github</a>
+            <br>
+        </div>
+        <div class="main">
+            {% for message in get_flashed_messages() %}
+                <div class="alert">{{ message }}</div>
+            {% endfor %}
+            {% block body %}
+            {% endblock %}
+        <script type="text/javascript" src="/static/scripts.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                config: ["MMLorHTML.js"],
+                jax: ["input/TeX", "output/HTML-CSS", "output/NativeMML"],
+                extensions: ["MathMenu.js", "MathZoom.js"]
+            });
+        </script>
+    </body>
+</html>
