@@ -6,6 +6,8 @@ services:
     ports:
       - 5000:5000
     volumes:
-      - ./data:/data
+      - ./mdboard_data:/data
     environment:
       SECRET: "CHANGETHISLINETOSOMETHINGLONGANDRANDOM"
+      ENABLE_HTTPS: "False"
+    restart: unless-stopped

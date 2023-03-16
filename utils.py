@@ -9,8 +9,9 @@ def check_setup():
     """
     try:
         check = os.environ["SECRET"]
+        check = os.environ["ENABLE_HTTPS"]
     except KeyError:
-        raise RuntimeError("Ensure SECRET is set.")
+        raise RuntimeError("Ensure environment variables SECRET and ENABLE_HTTPS are set.")
     if not os.path.exists("/data/database.db"):
         new_setup()
 
@@ -21,3 +22,5 @@ def new_setup():
         DB.create_all()
         DB.session.add(AppData(username="user", password=hash_string("password")))
         DB.session.commit()
+    print("New setup complete. The username is 'user' and the password is 'password'. \
+           The user should be change this ASAP.")
