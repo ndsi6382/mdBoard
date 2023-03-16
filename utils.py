@@ -8,12 +8,10 @@ def check_setup():
     Runs the setup script if necessary.
     """
     try:
-        if not os.path.exists(os.environ["MDB_DIR"]):
-            os.makedirs(os.environ["MDB_DIR"])
-        check = os.environ["MDB_SECRET"]
+        check = os.environ["SECRET"]
     except KeyError:
-        raise RuntimeError("Environment variable not set! Ensure MDB_DIR, MDB_CONFIGS, and MDB_SECRET are set.")
-    if not os.path.exists(os.path.join(os.environ["MDB_DIR"], "database.db")):
+        raise RuntimeError("Ensure SECRET is set.")
+    if not os.path.exists("/data/database.db"):
         new_setup()
 
 def new_setup():

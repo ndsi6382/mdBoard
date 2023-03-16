@@ -6,6 +6,7 @@ import pymdownx
 
 salt = bcrypt.gensalt()
 
+DATA_DIR = "/data"
 UNSAFE_CHARS = "`~!@#$%^&*:;}{][\/|<>?"
 
 def hash_string(string):
@@ -20,14 +21,14 @@ def process_login(user, pwd):
             return False
 
 def list_mds():
-    return sorted([e[:-3] for e in os.listdir(os.environ["MDB_DIR"]) if e[-3:] == ".md"], key=str.casefold)
+    return sorted([e[:-3] for e in os.listdir(DATA_DIR) if e[-3:] == ".md"], key=str.casefold)
 
 def get_md(title):
-    with open(os.path.join(os.environ["MDB_DIR"], f"{title}.md")) as f:
+    with open(os.path.join(DATA_DIR, f"{title}.md")) as f:
         return f.read()
 
 def md_to_html(title):
-    with open(os.path.join(os.environ["MDB_DIR"], f"{title}.md")) as f:
+    with open(os.path.join(DATA_DIR, f"{title}.md")) as f:
         return markdown.markdown("[TOC]\n\n" + f.read(),
             extensions=['toc', 'pymdownx.arithmatex', 'pymdownx.extra'], 
             extension_configs={
@@ -36,7 +37,7 @@ def md_to_html(title):
         )
 
 def delete_md(title):
-    os.remove(os.path.join(os.environ["MDB_DIR"], f"{title}.md"))
+    os.remove(os.path.join(DATA_DIR, f"{title}.md"))
 
 def sanitise_string(s):
     s = "".join(c for c in s if c not in UNSAFE_CHARS)
@@ -47,9 +48,9 @@ def sanitise_string(s):
 
 def overwrite_md(curr_title, new_title, new_content):
     new_title = sanitise_string(new_title)
-    new_title = os.path.join(os.environ["MDB_DIR"], f"{new_title}.md")
+    new_title = os.path.join(DATA_DIR, f"{new_title}.md")
     if curr_title:
-        os.remove(os.path.join(os.environ["MDB_DIR"], f"{curr_title}.md"))
+        os.remove(os.path.join(DATA_DIR, f"{curr_title}.md"))
     with open(new_title, 'w') as f:
         f.write(new_content)
 
@@ -57,7 +58,7 @@ def get_settings_data():
     # omits password
     with APP.app_context():
         r = AppData.query.all()
-        data = {"username":r[0].username, "directory":os.environ["MDB_DIR"]}
+        data = {"username":r[0].username, "directory":DATA_DIR}
         return data
 
 def update_settings_data(username, password, directory):
@@ -70,5 +71,5 @@ def update_settings_data(username, password, directory):
         if directory:
             if not os.path.exists(directory):
                 os.mkdir(directory)
-            os.environ["MDB_DIR"] = directory
+            DATA_DIR = directory
         DB.session.commit()
