@@ -33,7 +33,7 @@ Inline LaTex is supported by placing commands between `$` signs. For example: $c
 LaTex blocks can be used by placing commands between `$$` signs. Additionally there must be a blank line before and after the block.
 
 $$
-SSE = \sum_{i=1}^n (y-f(x_i))^2
+SSE = \sum_{i=1}^n (y_i - f(x_i))^2
 $$
 
 ## Lists
