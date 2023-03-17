@@ -6,9 +6,9 @@ services:
     ports:
       - 54321:5000 # Map port as desired
     volumes:
-      - ./mdboard_data:/data # Bind to directory as desired, otherwise leave as is
+      - /home/nicholas/Tests/mdboard_data:/data # Bind to directory as desired, otherwise leave as is
     environment:
       SECRET: "CHANGETHISLINETOSOMETHINGLONGANDRANDOM" # Change this line
-      SECURE_COOKIE: "True" # Set this to "True" if running behind a reverse proxy with HTTPS. Otherwise, "False"
+      SECURE_COOKIE: "False" # Set this to "True" if running behind a reverse proxy with HTTPS. Otherwise, "False"
       PYTHONUNBUFFERED: 1
     restart: unless-stopped
