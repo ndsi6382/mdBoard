@@ -3,8 +3,8 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
 from tempfile import mkdtemp
-from utils import DATA_DIR
 
+DATA_DIR = "/data"
 APP = Flask(__name__)
 APP.config["SECRET_KEY"] = os.environ["SECRET"]
 APP.config["SESSION_FILE_DIR"] = mkdtemp(suffix=".mdb")

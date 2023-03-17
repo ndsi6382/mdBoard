@@ -1,4 +1,4 @@
-import os
+import os, shutil
 from application.utils import DATA_DIR, hash_string
 from application.models import AppData
 
@@ -16,11 +16,12 @@ def check_setup():
         new_setup()
 
 def new_setup():
-    from application import DB, APP
     print("Setting up...")
+    from application import DB, APP
     with APP.app_context():
         DB.create_all()
         DB.session.add(AppData(username="user", password=hash_string("password")))
         DB.session.commit()
-    print("New setup complete. The username is 'user' and the password is 'password'. \
-           The user should be change this ASAP.")
+    shutil.move(os.path.join(os.path.abspath(os.getcwd()), 'Sample.md'), os.path.join(DATA_DIR, 'Sample.md'))
+    print("New setup complete. The username is 'user' and the password is 'password'.", end="")
+    print("The user should change this ASAP in Settings.")

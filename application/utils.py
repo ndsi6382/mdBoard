@@ -1,12 +1,10 @@
 import bcrypt, os, datetime
-from application import APP, DB
+from application import APP, DB, DATA_DIR
 from application.models import AppData
 import markdown
 import pymdownx
 
 salt = bcrypt.gensalt()
-
-DATA_DIR = "/data"
 UNSAFE_CHARS = "`~!@#$%^&*:;}{][\/|<>?"
 
 def hash_string(string):
