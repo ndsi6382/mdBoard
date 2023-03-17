@@ -70,6 +70,10 @@
     padding: 10px;
     border-radius: 8px;
     background: rgba(0,0,0,0.66);
+    white-space: pre;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
 .article *:not(pre) > code {

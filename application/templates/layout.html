@@ -7,6 +7,8 @@
         <link href="/static/main.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
         <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
         <meta charset="UTF-8">
     </head>
     <body>
@@ -41,13 +43,5 @@
             {% block body %}
             {% endblock %}
         <script type="text/javascript" src="/static/scripts.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
-        <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({
-                config: ["MMLorHTML.js"],
-                jax: ["input/TeX", "output/HTML-CSS", "output/NativeMML"],
-                extensions: ["MathMenu.js", "MathZoom.js"]
-            });
-        </script>
     </body>
 </html>

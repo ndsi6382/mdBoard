@@ -18,6 +18,7 @@ def login():
     if request.method == "POST":
         if process_login(request.form.get('username'), request.form.get('password')):
             session['user'] = request.form.get('username')
+            print(f"User: {request.form.get('username')} logged in.")
             return redirect("/", code=302)
         else:
             flash("Invalid username and/or password!")
@@ -29,6 +30,7 @@ def login():
 @login_required
 def logout():
     session["user"] = None
+    print("Logged out.")
     return redirect("/", code=302)
 
 @APP.route("/")
@@ -92,7 +94,7 @@ def settings():
             flash("New passwords do not match!")
             return redirect('/settings')
         # commit changes (if any)
-        update_settings_data(request.form.get('username'), request.form.get('new_password'), request.form.get('directory'))
+        update_settings_data(request.form.get('username'), request.form.get('new_password'))
         flash("Your details have been updates successfully!")
         return redirect('/settings')
 

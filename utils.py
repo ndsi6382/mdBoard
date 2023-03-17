@@ -1,5 +1,5 @@
 import os
-from application.utils import hash_string
+from application.utils import DATA_DIR, hash_string
 from application.models import AppData
 
 def check_setup():
@@ -9,10 +9,10 @@ def check_setup():
     """
     try:
         check = os.environ["SECRET"]
-        check = os.environ["ENABLE_HTTPS"]
+        check = os.environ["SECURE_COOKIE"]
     except KeyError:
-        raise RuntimeError("Ensure environment variables SECRET and ENABLE_HTTPS are set.")
-    if not os.path.exists("/data/database.db"):
+        raise RuntimeError("Ensure environment variables SECRET and SECURE_COOKIE are set.")
+    if not os.path.exists(os.path.join(DATA_DIR, 'database.db')):
         new_setup()
 
 def new_setup():

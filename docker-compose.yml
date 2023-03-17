@@ -4,10 +4,11 @@ services:
     image: mdboard
     build: .
     ports:
-      - 5000:5000
+      - 54321:5000 # Map port as desired
     volumes:
-      - ./mdboard_data:/data
+      - ./mdboard_data:/data # Bind to directory as desired, otherwise leave as is
     environment:
-      SECRET: "CHANGETHISLINETOSOMETHINGLONGANDRANDOM"
-      ENABLE_HTTPS: "False"
+      SECRET: "CHANGETHISLINETOSOMETHINGLONGANDRANDOM" # Change this line
+      SECURE_COOKIE: "True" # Set this to "True" if running behind a reverse proxy with HTTPS. Otherwise, "False"
+      PYTHONUNBUFFERED: 1
     restart: unless-stopped

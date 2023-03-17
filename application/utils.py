@@ -32,7 +32,8 @@ def md_to_html(title):
         return markdown.markdown("[TOC]\n\n" + f.read(),
             extensions=['toc', 'pymdownx.arithmatex', 'pymdownx.extra'], 
             extension_configs={
-                'toc':{'toc_depth':'2-6', 'title':'Contents'}
+                'toc':{'toc_depth':'2-6', 'title':'Contents'},
+                'pymdownx.arithmatex':{'generic':True}
             }
         )
 
@@ -58,18 +59,14 @@ def get_settings_data():
     # omits password
     with APP.app_context():
         r = AppData.query.all()
-        data = {"username":r[0].username, "directory":DATA_DIR}
+        data = {"username":r[0].username}
         return data
 
-def update_settings_data(username, password, directory):
+def update_settings_data(username, password):
     with APP.app_context():
         r = AppData.query.all()
         if username:
             r[0].username = username
         if password:
             r[0].password = hash_string(password)
-        if directory:
-            if not os.path.exists(directory):
-                os.mkdir(directory)
-            DATA_DIR = directory
         DB.session.commit()
